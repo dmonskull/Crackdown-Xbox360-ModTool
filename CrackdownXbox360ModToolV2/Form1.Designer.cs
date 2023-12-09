@@ -31,11 +31,12 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             styleManager1 = new MetroSet_UI.Components.StyleManager();
-            metroSetButton1 = new MetroSet_UI.Controls.MetroSetButton();
             metroSetLabel1 = new MetroSet_UI.Controls.MetroSetLabel();
             metroSetLabel2 = new MetroSet_UI.Controls.MetroSetLabel();
             metroSetTabControl1 = new MetroSet_UI.Controls.MetroSetTabControl();
             tabPage1 = new TabPage();
+            textBox2 = new TextBox();
+            metroSetButton14 = new MetroSet_UI.Controls.MetroSetButton();
             metroSetButton12 = new MetroSet_UI.Controls.MetroSetButton();
             metroSetButton10 = new MetroSet_UI.Controls.MetroSetButton();
             metroSetButton3 = new MetroSet_UI.Controls.MetroSetButton();
@@ -48,9 +49,9 @@
             metroSetButton4 = new MetroSet_UI.Controls.MetroSetButton();
             metroSetButton2 = new MetroSet_UI.Controls.MetroSetButton();
             timer1 = new System.Windows.Forms.Timer(components);
-            metroSetButton9 = new MetroSet_UI.Controls.MetroSetButton();
             timer2 = new System.Windows.Forms.Timer(components);
-            metroSetButton13 = new MetroSet_UI.Controls.MetroSetButton();
+            metroSetButton1 = new MetroSet_UI.Controls.MetroSetButton();
+            metroSetButton9 = new MetroSet_UI.Controls.MetroSetButton();
             metroSetTabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             SuspendLayout();
@@ -62,33 +63,6 @@
             styleManager1.Style = MetroSet_UI.Enums.Style.Dark;
             styleManager1.ThemeAuthor = "Narwin";
             styleManager1.ThemeName = "MetroDark";
-            // 
-            // metroSetButton1
-            // 
-            metroSetButton1.DisabledBackColor = Color.FromArgb(120, 65, 177, 225);
-            metroSetButton1.DisabledBorderColor = Color.FromArgb(120, 65, 177, 225);
-            metroSetButton1.DisabledForeColor = Color.Gray;
-            metroSetButton1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            metroSetButton1.HoverBorderColor = Color.FromArgb(95, 207, 255);
-            metroSetButton1.HoverColor = Color.FromArgb(95, 207, 255);
-            metroSetButton1.HoverTextColor = Color.White;
-            metroSetButton1.IsDerivedStyle = true;
-            metroSetButton1.Location = new Point(15, 90);
-            metroSetButton1.Name = "metroSetButton1";
-            metroSetButton1.NormalBorderColor = Color.FromArgb(65, 177, 225);
-            metroSetButton1.NormalColor = Color.FromArgb(65, 177, 225);
-            metroSetButton1.NormalTextColor = Color.White;
-            metroSetButton1.PressBorderColor = Color.FromArgb(35, 147, 195);
-            metroSetButton1.PressColor = Color.FromArgb(35, 147, 195);
-            metroSetButton1.PressTextColor = Color.White;
-            metroSetButton1.Size = new Size(172, 31);
-            metroSetButton1.Style = MetroSet_UI.Enums.Style.Dark;
-            metroSetButton1.StyleManager = styleManager1;
-            metroSetButton1.TabIndex = 0;
-            metroSetButton1.Text = "Connect";
-            metroSetButton1.ThemeAuthor = "Narwin";
-            metroSetButton1.ThemeName = "MetroDark";
-            metroSetButton1.Click += metroSetButton1_Click;
             // 
             // metroSetLabel1
             // 
@@ -145,6 +119,8 @@
             // tabPage1
             // 
             tabPage1.BackColor = Color.Transparent;
+            tabPage1.Controls.Add(textBox2);
+            tabPage1.Controls.Add(metroSetButton14);
             tabPage1.Controls.Add(metroSetButton12);
             tabPage1.Controls.Add(metroSetButton10);
             tabPage1.Controls.Add(metroSetButton3);
@@ -162,6 +138,41 @@
             tabPage1.Size = new Size(762, 262);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Main Mods";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(512, 110);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(247, 27);
+            textBox2.TabIndex = 16;
+            textBox2.Text = "fly";
+            // 
+            // metroSetButton14
+            // 
+            metroSetButton14.DisabledBackColor = Color.FromArgb(120, 65, 177, 225);
+            metroSetButton14.DisabledBorderColor = Color.FromArgb(120, 65, 177, 225);
+            metroSetButton14.DisabledForeColor = Color.Gray;
+            metroSetButton14.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            metroSetButton14.HoverBorderColor = Color.FromArgb(95, 207, 255);
+            metroSetButton14.HoverColor = Color.FromArgb(95, 207, 255);
+            metroSetButton14.HoverTextColor = Color.White;
+            metroSetButton14.IsDerivedStyle = true;
+            metroSetButton14.Location = new Point(512, 73);
+            metroSetButton14.Name = "metroSetButton14";
+            metroSetButton14.NormalBorderColor = Color.FromArgb(65, 177, 225);
+            metroSetButton14.NormalColor = Color.FromArgb(65, 177, 225);
+            metroSetButton14.NormalTextColor = Color.White;
+            metroSetButton14.PressBorderColor = Color.FromArgb(35, 147, 195);
+            metroSetButton14.PressColor = Color.FromArgb(35, 147, 195);
+            metroSetButton14.PressTextColor = Color.White;
+            metroSetButton14.Size = new Size(247, 31);
+            metroSetButton14.Style = MetroSet_UI.Enums.Style.Dark;
+            metroSetButton14.StyleManager = styleManager1;
+            metroSetButton14.TabIndex = 15;
+            metroSetButton14.Text = "Send Console Command";
+            metroSetButton14.ThemeAuthor = "Narwin";
+            metroSetButton14.ThemeName = "MetroDark";
+            metroSetButton14.Click += metroSetButton14_Click;
             // 
             // metroSetButton12
             // 
@@ -446,6 +457,38 @@
             timer1.Interval = 6000;
             timer1.Tick += timer1_Tick;
             // 
+            // timer2
+            // 
+            timer2.Interval = 1000;
+            timer2.Tick += timer2_Tick;
+            // 
+            // metroSetButton1
+            // 
+            metroSetButton1.DisabledBackColor = Color.FromArgb(120, 65, 177, 225);
+            metroSetButton1.DisabledBorderColor = Color.FromArgb(120, 65, 177, 225);
+            metroSetButton1.DisabledForeColor = Color.Gray;
+            metroSetButton1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            metroSetButton1.HoverBorderColor = Color.FromArgb(95, 207, 255);
+            metroSetButton1.HoverColor = Color.FromArgb(95, 207, 255);
+            metroSetButton1.HoverTextColor = Color.White;
+            metroSetButton1.IsDerivedStyle = true;
+            metroSetButton1.Location = new Point(15, 90);
+            metroSetButton1.Name = "metroSetButton1";
+            metroSetButton1.NormalBorderColor = Color.FromArgb(65, 177, 225);
+            metroSetButton1.NormalColor = Color.FromArgb(65, 177, 225);
+            metroSetButton1.NormalTextColor = Color.White;
+            metroSetButton1.PressBorderColor = Color.FromArgb(35, 147, 195);
+            metroSetButton1.PressColor = Color.FromArgb(35, 147, 195);
+            metroSetButton1.PressTextColor = Color.White;
+            metroSetButton1.Size = new Size(153, 31);
+            metroSetButton1.Style = MetroSet_UI.Enums.Style.Dark;
+            metroSetButton1.StyleManager = styleManager1;
+            metroSetButton1.TabIndex = 0;
+            metroSetButton1.Text = "Connect";
+            metroSetButton1.ThemeAuthor = "Narwin";
+            metroSetButton1.ThemeName = "MetroDark";
+            metroSetButton1.Click += metroSetButton1_Click;
+            // 
             // metroSetButton9
             // 
             metroSetButton9.DisabledBackColor = Color.FromArgb(120, 65, 177, 225);
@@ -456,7 +499,7 @@
             metroSetButton9.HoverColor = Color.FromArgb(95, 207, 255);
             metroSetButton9.HoverTextColor = Color.White;
             metroSetButton9.IsDerivedStyle = true;
-            metroSetButton9.Location = new Point(193, 90);
+            metroSetButton9.Location = new Point(188, 90);
             metroSetButton9.Name = "metroSetButton9";
             metroSetButton9.NormalBorderColor = Color.FromArgb(65, 177, 225);
             metroSetButton9.NormalColor = Color.FromArgb(65, 177, 225);
@@ -464,7 +507,7 @@
             metroSetButton9.PressBorderColor = Color.FromArgb(35, 147, 195);
             metroSetButton9.PressColor = Color.FromArgb(35, 147, 195);
             metroSetButton9.PressTextColor = Color.White;
-            metroSetButton9.Size = new Size(172, 31);
+            metroSetButton9.Size = new Size(153, 31);
             metroSetButton9.Style = MetroSet_UI.Enums.Style.Dark;
             metroSetButton9.StyleManager = styleManager1;
             metroSetButton9.TabIndex = 4;
@@ -473,45 +516,12 @@
             metroSetButton9.ThemeName = "MetroDark";
             metroSetButton9.Click += metroSetButton9_Click;
             // 
-            // timer2
-            // 
-            timer2.Interval = 1000;
-            timer2.Tick += timer2_Tick;
-            // 
-            // metroSetButton13
-            // 
-            metroSetButton13.DisabledBackColor = Color.FromArgb(120, 65, 177, 225);
-            metroSetButton13.DisabledBorderColor = Color.FromArgb(120, 65, 177, 225);
-            metroSetButton13.DisabledForeColor = Color.Gray;
-            metroSetButton13.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            metroSetButton13.HoverBorderColor = Color.FromArgb(95, 207, 255);
-            metroSetButton13.HoverColor = Color.FromArgb(95, 207, 255);
-            metroSetButton13.HoverTextColor = Color.White;
-            metroSetButton13.IsDerivedStyle = true;
-            metroSetButton13.Location = new Point(371, 90);
-            metroSetButton13.Name = "metroSetButton13";
-            metroSetButton13.NormalBorderColor = Color.FromArgb(65, 177, 225);
-            metroSetButton13.NormalColor = Color.FromArgb(65, 177, 225);
-            metroSetButton13.NormalTextColor = Color.White;
-            metroSetButton13.PressBorderColor = Color.FromArgb(35, 147, 195);
-            metroSetButton13.PressColor = Color.FromArgb(35, 147, 195);
-            metroSetButton13.PressTextColor = Color.White;
-            metroSetButton13.Size = new Size(172, 31);
-            metroSetButton13.Style = MetroSet_UI.Enums.Style.Dark;
-            metroSetButton13.StyleManager = styleManager1;
-            metroSetButton13.TabIndex = 5;
-            metroSetButton13.Text = "Fast Sign-In";
-            metroSetButton13.ThemeAuthor = "Narwin";
-            metroSetButton13.ThemeName = "MetroDark";
-            metroSetButton13.Click += metroSetButton13_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundColor = Color.FromArgb(30, 30, 30);
             ClientSize = new Size(800, 450);
-            Controls.Add(metroSetButton13);
             Controls.Add(metroSetButton9);
             Controls.Add(metroSetTabControl1);
             Controls.Add(metroSetLabel2);
@@ -537,7 +547,6 @@
 
         private MetroSet_UI.Components.StyleManager styleManager1;
         private MetroSet_UI.Controls.MetroSetLabel metroSetLabel1;
-        private MetroSet_UI.Controls.MetroSetButton metroSetButton1;
         private MetroSet_UI.Controls.MetroSetLabel metroSetLabel2;
         private MetroSet_UI.Controls.MetroSetTabControl metroSetTabControl1;
         private TabPage tabPage1;
@@ -548,13 +557,15 @@
         private MetroSet_UI.Controls.MetroSetButton metroSetButton6;
         private MetroSet_UI.Controls.MetroSetButton metroSetButton7;
         private MetroSet_UI.Controls.MetroSetButton metroSetButton8;
-        private MetroSet_UI.Controls.MetroSetButton metroSetButton9;
         private System.Windows.Forms.Timer timer2;
         private TextBox textBox1;
         private MetroSet_UI.Controls.MetroSetButton metroSetButton11;
-        private MetroSet_UI.Controls.MetroSetButton metroSetButton13;
         private MetroSet_UI.Controls.MetroSetButton metroSetButton3;
         private MetroSet_UI.Controls.MetroSetButton metroSetButton10;
         private MetroSet_UI.Controls.MetroSetButton metroSetButton12;
+        private MetroSet_UI.Controls.MetroSetButton metroSetButton9;
+        private MetroSet_UI.Controls.MetroSetButton metroSetButton1;
+        private TextBox textBox2;
+        private MetroSet_UI.Controls.MetroSetButton metroSetButton14;
     }
 }

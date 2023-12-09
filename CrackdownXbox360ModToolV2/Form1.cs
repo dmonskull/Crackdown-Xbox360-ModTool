@@ -296,13 +296,7 @@ namespace CrackdownXbox360ModToolV2
 
         private void metroSetButton13_Click(object sender, EventArgs e)
         {
-            JRPC.CallVoid(JRPC.ResolveFunction("xam.xex", 700U), new object[]
-            {
-                0,
-                0,
-                0,
-                0
-            });
+
         }
 
         public bool godmode;
@@ -367,6 +361,18 @@ namespace CrackdownXbox360ModToolV2
                     metroSetButton12.Text = "FPS: OFF";
                 }
                 fps = !fps;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred", "Error");
+            }
+        }
+
+        private void metroSetButton14_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                JRPC.CallVoid(0x82BC206C, textBox2.Text);
             }
             catch (Exception ex)
             {
