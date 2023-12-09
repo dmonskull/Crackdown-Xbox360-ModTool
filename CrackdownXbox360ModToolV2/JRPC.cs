@@ -25,6 +25,7 @@
         private StreamReader JRPC_Reader;
         private StreamWriter JRPC_Writer;
         private byte[] myBuff = new byte[0x100];
+        private byte[] myBuff2 = new byte[0x4];
         private uint outInt;
         private uint String = 2;
         private short Temp16;
@@ -868,9 +869,9 @@
 
         public void WriteFloat(uint Offset, float input)
         {
-            BitConverter.GetBytes(input).CopyTo(this.myBuff, 0);
-            Array.Reverse(this.myBuff, 0, 4);
-            this.SetMemory(Offset, this.myBuff);
+            BitConverter.GetBytes(input).CopyTo(this.myBuff2, 0);
+            Array.Reverse(this.myBuff2, 0, 4);
+            this.SetMemory(Offset, this.myBuff2);
         }
 
         private static void ReverseBytes(byte[] buffer, int groupSize)

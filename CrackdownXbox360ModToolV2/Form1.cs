@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Numerics;
+using MetroSet_UI.Controls;
+using System;
 
 /*
  * Made by DMONSKULL
@@ -29,6 +31,18 @@ namespace CrackdownXbox360ModToolV2
         private void Form1_Load(object sender, EventArgs e)
         {
             timer2.Start();
+            try
+            {
+                JRPC.Connect();
+                if (JRPC.activeConnection == true)
+                {
+                    metroSetLabel1.Text = "Connection Found!";
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Failed to Connect", "Please check your Plugins!");
+            }
         }
         static string ReadSpecificLine(string filePath, int lineNumber)
         {
@@ -85,46 +99,25 @@ namespace CrackdownXbox360ModToolV2
         public bool gun1ammo;
         private void AmmoButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!gun1ammo)
-                {
-                    AmmoButton.Text = "Gun 2 Ammo: ON";
-                    JRPC.SetMemory(0xC6560540, new byte[] { 0x0F, 0xFF, 0xFF, 0xFF });
-                    JRPC.SetMemory(0xC6550540, new byte[] { 0x0F, 0xFF, 0xFF, 0xFF });
-                }
-                else
-                {
-                    AmmoButton.Text = "Gun 2 Ammo: OFF";
-                    JRPC.SetMemory(0xC6560540, new byte[] { 0x00, 0x00, 0x00, 0x20 });
-                    JRPC.SetMemory(0xC6550540, new byte[] { 0x00, 0x00, 0x00, 0x20 });
-                }
-                gun1ammo = !gun1ammo;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred", "Error");
-            }
+
         }
 
-        public bool gun2ammo;
+        public bool infiniteammo;
         private void metroSetButton2_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!gun2ammo)
+                if (!infiniteammo)
                 {
-                    metroSetButton2.Text = "Gun 1 Ammo: ON";
-                    JRPC.SetMemory(0xC6560BC0, new byte[] { 0x0F, 0xFF, 0xFF, 0xFF });
-                    JRPC.SetMemory(0xC6550BC0, new byte[] { 0x0F, 0xFF, 0xFF, 0xFF });
+                    JRPC.CallVoid(0x825D4548, "infiniteammo");
+                    metroSetButton2.Text = "Infinite Ammo: ON";
                 }
                 else
                 {
-                    metroSetButton2.Text = "Gun 1 Ammo: OFF";
-                    JRPC.SetMemory(0xC6560BC0, new byte[] { 0x00, 0x00, 0x00, 0xB4 });
-                    JRPC.SetMemory(0xC6550BC0, new byte[] { 0x00, 0x00, 0x00, 0xB4 });
+                    JRPC.CallVoid(0x825D4548, "infiniteammo");
+                    metroSetButton2.Text = "Infinite Ammo: OFF";
                 }
-                gun2ammo = !gun2ammo;
+                infiniteammo = !infiniteammo;
             }
             catch (Exception ex)
             {
@@ -135,34 +128,12 @@ namespace CrackdownXbox360ModToolV2
         public bool grenades;
         private void metroSetButton3_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!grenades)
-                {
-                    metroSetButton3.Text = "Grenade Loop: ON";
-                    timer1.Enabled = true;
-                    timer1.Start();
-                }
-                else
-                {
-                    metroSetButton3.Text = "Grenade Loop: OFF";
-                    timer1.Stop();
-                    timer1.Enabled = false;
-                    JRPC.SetMemory(0xC6561244, new byte[] { 0x00, 0x00, 0x00, 0x07 });
-                    JRPC.SetMemory(0xC6551244, new byte[] { 0x00, 0x00, 0x00, 0x07 });
-                }
-                grenades = !grenades;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred", "Error");
-            }
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            JRPC.SetMemory(0xC6561244, new byte[] { 0x00, 0x00, 0x00, 0x07 });
-            JRPC.SetMemory(0xC6551244, new byte[] { 0x00, 0x00, 0x00, 0x07 });
+
         }
 
         private bool speedycars;
@@ -196,12 +167,12 @@ namespace CrackdownXbox360ModToolV2
                 if (!superrun)
                 {
                     metroSetButton5.Text = "Super Run: ON";
-                    JRPC.SetMemory(0x820F55F8, new byte[] { 0x3A, 0x22, 0x87, 0x94 });
+                    JRPC.SetMemory(0x820F55F8, new byte[] { 0x3A });
                 }
                 else
                 {
                     metroSetButton5.Text = "Super Run: OFF";
-                    JRPC.SetMemory(0x820F55F8, new byte[] { 0x38, 0x82, 0x06, 0x10 });
+                    JRPC.SetMemory(0x820F55F8, new byte[] { 0x38 });
                 }
                 superrun = !superrun;
             }
@@ -263,7 +234,7 @@ namespace CrackdownXbox360ModToolV2
                 if (!widefov)
                 {
                     metroSetButton8.Text = "Wide FOV: ON";
-                    JRPC.SetMemory(0x82070A64, new byte[] { 0x40, 0x00, 0x00, 0x00 });
+                    JRPC.SetMemory(0x82070A64, new byte[] { 0x40, 0x40, 0x00, 0x00 });
                 }
                 else
                 {
@@ -303,6 +274,104 @@ namespace CrackdownXbox360ModToolV2
         private void metroSetButton10_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void metroSetButton11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                JRPC.CallVoid(0x825D4548, textBox1.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred", "Error");
+            }
+
+        }
+
+        private void metroSetButton12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroSetButton13_Click(object sender, EventArgs e)
+        {
+            JRPC.CallVoid(JRPC.ResolveFunction("xam.xex", 700U), new object[]
+            {
+                0,
+                0,
+                0,
+                0
+            });
+        }
+
+        public bool godmode;
+        private void metroSetButton3_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!godmode)
+                {
+                    JRPC.CallVoid(0x825D4548, "god");
+                    metroSetButton3.Text = "Godmode: ON";
+                }
+                else
+                {
+                    JRPC.CallVoid(0x825D4548, "god");
+                    metroSetButton3.Text = "Godmode: OFF";
+                }
+                godmode = !godmode;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred", "Error");
+            }
+        }
+
+        public bool fly;
+        private void metroSetButton10_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!fly)
+                {
+                    JRPC.CallVoid(0x825D4548, "fly");
+                    metroSetButton10.Text = "Fly: ON";
+                }
+                else
+                {
+                    JRPC.CallVoid(0x825D4548, "fly");
+                    metroSetButton10.Text = "Fly: OFF";
+                }
+                fly = !fly;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred", "Error");
+            }
+        }
+
+        public bool fps;
+        private void metroSetButton12_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!fps)
+                {
+                    JRPC.CallVoid(0x825D4548, "fps");
+                    metroSetButton12.Text = "FPS: ON";
+                }
+                else
+                {
+                    JRPC.CallVoid(0x825D4548, "fps");
+                    metroSetButton12.Text = "FPS: OFF";
+                }
+                fps = !fps;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred", "Error");
+            }
         }
     }
 }
