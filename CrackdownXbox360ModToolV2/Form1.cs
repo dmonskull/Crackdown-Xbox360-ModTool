@@ -370,14 +370,12 @@ namespace CrackdownXbox360ModToolV2
 
         private void metroSetButton14_Click(object sender, EventArgs e)
         {
-            try
-            {
-                JRPC.CallVoid(0x82BC206C, textBox2.Text);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred", "Error");
-            }
+
+        }
+
+        private void metroSetButton13_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

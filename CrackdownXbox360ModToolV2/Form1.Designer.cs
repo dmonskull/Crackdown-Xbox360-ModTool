@@ -35,8 +35,6 @@
             metroSetLabel2 = new MetroSet_UI.Controls.MetroSetLabel();
             metroSetTabControl1 = new MetroSet_UI.Controls.MetroSetTabControl();
             tabPage1 = new TabPage();
-            textBox2 = new TextBox();
-            metroSetButton14 = new MetroSet_UI.Controls.MetroSetButton();
             metroSetButton12 = new MetroSet_UI.Controls.MetroSetButton();
             metroSetButton10 = new MetroSet_UI.Controls.MetroSetButton();
             metroSetButton3 = new MetroSet_UI.Controls.MetroSetButton();
@@ -119,8 +117,6 @@
             // tabPage1
             // 
             tabPage1.BackColor = Color.Transparent;
-            tabPage1.Controls.Add(textBox2);
-            tabPage1.Controls.Add(metroSetButton14);
             tabPage1.Controls.Add(metroSetButton12);
             tabPage1.Controls.Add(metroSetButton10);
             tabPage1.Controls.Add(metroSetButton3);
@@ -138,41 +134,6 @@
             tabPage1.Size = new Size(762, 262);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Main Mods";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(512, 110);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(247, 27);
-            textBox2.TabIndex = 16;
-            textBox2.Text = "fly";
-            // 
-            // metroSetButton14
-            // 
-            metroSetButton14.DisabledBackColor = Color.FromArgb(120, 65, 177, 225);
-            metroSetButton14.DisabledBorderColor = Color.FromArgb(120, 65, 177, 225);
-            metroSetButton14.DisabledForeColor = Color.Gray;
-            metroSetButton14.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            metroSetButton14.HoverBorderColor = Color.FromArgb(95, 207, 255);
-            metroSetButton14.HoverColor = Color.FromArgb(95, 207, 255);
-            metroSetButton14.HoverTextColor = Color.White;
-            metroSetButton14.IsDerivedStyle = true;
-            metroSetButton14.Location = new Point(512, 73);
-            metroSetButton14.Name = "metroSetButton14";
-            metroSetButton14.NormalBorderColor = Color.FromArgb(65, 177, 225);
-            metroSetButton14.NormalColor = Color.FromArgb(65, 177, 225);
-            metroSetButton14.NormalTextColor = Color.White;
-            metroSetButton14.PressBorderColor = Color.FromArgb(35, 147, 195);
-            metroSetButton14.PressColor = Color.FromArgb(35, 147, 195);
-            metroSetButton14.PressTextColor = Color.White;
-            metroSetButton14.Size = new Size(247, 31);
-            metroSetButton14.Style = MetroSet_UI.Enums.Style.Dark;
-            metroSetButton14.StyleManager = styleManager1;
-            metroSetButton14.TabIndex = 15;
-            metroSetButton14.Text = "Send Console Command";
-            metroSetButton14.ThemeAuthor = "Narwin";
-            metroSetButton14.ThemeName = "MetroDark";
-            metroSetButton14.Click += metroSetButton14_Click;
             // 
             // metroSetButton12
             // 
@@ -565,7 +526,5 @@
         private MetroSet_UI.Controls.MetroSetButton metroSetButton12;
         private MetroSet_UI.Controls.MetroSetButton metroSetButton9;
         private MetroSet_UI.Controls.MetroSetButton metroSetButton1;
-        private TextBox textBox2;
-        private MetroSet_UI.Controls.MetroSetButton metroSetButton14;
     }
 }
